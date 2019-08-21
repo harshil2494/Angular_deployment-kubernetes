@@ -1,7 +1,7 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
 kind: Deployment 
 metadata: 
-  name: angular-deployment 
+  name: angular-deployment-kube 
 spec: 
   selector: 
     matchLabels: 
@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: angular 
-        image: houssemdocker/angular-app:v1 
+        image:  harshil24/angular-kube-deployment:1.0
         ports: 
         - containerPort: 80 
 --- 
@@ -22,7 +22,7 @@ spec:
 kind: Service 
 apiVersion: v1 
 metadata: 
-  name: angular-service 
+  name: angular-service-kube 
 spec: 
   selector: 
     app: angular 
